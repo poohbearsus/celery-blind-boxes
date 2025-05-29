@@ -1,5 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
+import Navbar from "./components/NavBar";
+import Homepage from "./components/pages/Homepage";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -10,16 +12,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
 function App() {
   return (
     <div>
       <GlobalStyle />
       <Routes>
+        <Route element={<Navbar />}>
+          <Route path="/" element={<Homepage />} />
+        </Route>
       </Routes>
     </div>
   );
 }
 
-
-export default App
+export default App;
